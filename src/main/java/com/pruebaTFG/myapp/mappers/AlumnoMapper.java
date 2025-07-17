@@ -12,6 +12,7 @@ import java.util.Optional;
 
 public class AlumnoMapper {
 
+
     public static AlumnoDTO toDTO(Alumno alumno) {
         return AlumnoDTO.builder()
                 .id(alumno.getId())
