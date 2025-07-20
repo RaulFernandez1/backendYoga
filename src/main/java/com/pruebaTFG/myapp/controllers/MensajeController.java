@@ -30,6 +30,12 @@ public class MensajeController {
         return ResponseEntity.ok(dto);
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<MensajeDTO> editarMensaje(@PathVariable Long id, @RequestBody MensajeDTO mensaje) {
+        MensajeDTO dto = service.editMensaje(id,mensaje);
+        return ResponseEntity.ok(dto);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarMensaje(@PathVariable Long id) {
         service.deleteMensaje(id);

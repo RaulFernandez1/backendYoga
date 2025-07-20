@@ -1,10 +1,7 @@
 package com.pruebaTFG.myapp.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -40,6 +37,8 @@ public class Alumno {
     private String poblacion;
     private String provincia;
     private String codigopostal;
+
+    private String correo;
     private String telefono1;
     private String telefono2;
     private LocalDate fechaalta;

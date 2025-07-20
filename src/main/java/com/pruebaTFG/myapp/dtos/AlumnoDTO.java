@@ -23,6 +23,7 @@ public class AlumnoDTO {
     private String poblacion;
     private String provincia;
     private String codigopostal;
+    private String correo;
     private String telefono1;
     private String telefono2;
     private LocalDate fechaalta;
