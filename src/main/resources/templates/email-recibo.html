@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificacion recibo</title>
+</head>
+<body style="background-color:#f4f4f4; margin:0; padding:0; height:750px;">
+    <div style="background-color:#235c22; padding:20px 0;">
+        <table align="center" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td align="center">
+                    <table cellpadding="0" cellspacing="0" style="max-width:480px; width:100%;">
+                        <tr>
+                            <!-- LOGO -->
+                            <td style="padding-right:10px; vertical-align:middle; " width="50" align="right">
+                                <img src="cid:logoSadhana"
+                                     alt="Logo Sadhana de Yoga"
+                                     width="40" height="40"
+                                     style="background:#fff; border-radius:50%; display:block;">
+                            </td>
+                            <!-- TÍTULO -->
+                            <td style="vertical-align:middle; padding-left:0px;" width="50">
+                                <h1 style="color:#fff; font-size:24px; font-weight:700; font-family:'Segoe UI', Arial, sans-serif; margin:0;">
+                                    Sadhana de Yoga
+                                </h1>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="border-radius: 10px; background-color:#ffffff; margin:40px auto; padding:32px 28px 24px 28px; box-shadow:0px 4px 12px rgba(0,0,0,0.15);">
+                    <tr>
+                        <td style="font-family:'Segoe UI', Arial, sans-serif; font-size:24px; font-weight:700; color:#222222; padding-bottom:0px;">
+                            Recibo de Pago
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-family:'Segoe UI', Arial, sans-serif; padding-bottom: 10px; color:#666666">
+                            Escuela de Yoga - Sadhana de Yoga
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-family:'Segoe UI', Arial, sans-serif; color:#666666; padding-bottom:18px;">
+                            <b>Hola </b><b th:text="${nombre}">Pedro</b><b>,</b>
+                            <span>le informamos a usted de que ha recibido un nuevo recibo.</span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:#e8e8e8; border-left:4px solid #989898; padding:18px 16px; color:#333333; font-size:14px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr valign="top">
+                                    <td width="40%" style="vertical-align:middle;" align="center">
+                                        <img src="cid:soloLogo" alt="Logo" height="100" width="100"
+                                            style="background:white; border-radius:50%; display:block;"
+                                        >
+                                        <div style="font-size:10px; color:#6c757d; padding-top:8px;">
+                                            SADHANA DE YOGA <br>
+                                            Enseñanza según el magisterio de B.K.S. Iyengar
+                                        </div>
+                                    </td>
+                                    <td width="30%">
+
+                                    </td>
+                                    <td width="30%">
+                                        <div style="text-align:center; background: grey; padding:5px 0; font-weight:bold;font-size:20px;">
+                                            Recibo
+                                        </div>
+                                        <table width="100%" style="margin-top:30px;">
+                                            <tr>
+                                                <td><b>Fecha: </b></td>
+                                                <td align="right"><span th:text="${fecha}">23-05-2040</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Importe: </b></td>
+                                                <td align="right"><span th:text="${importe}">25</span> €</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:18px;">
+                                <tr>
+                                    <td width="20%" align="center">
+                                        <b>Alumno: </b>
+                                    </td>
+                                    <td>
+                                        <span th:text="${apellido1}" style="margin-right:6px;">Apellido1</span>
+                                        <span th:text="${apellido2}">Apellido2</span>,
+                                        <span th:text="${nombre}" style="margin-left:6px;">Nombre</span>
+                                    </td>
+                                    <td width="30%" align="center">
+                                        <b>Mensualidad</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td align="center" style="padding-top: 20px;">
+                                        <b>Nivel: </b>
+                                        <span th:text="${nivel}" style="margin-left:10px;">Nivel 1</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; font-size:13px; color:#666666; padding-top:18px;">
+                            Cualquier duda, no dudes en contactar con nosotros.<br>
+                            Contacta con nosotros en <a href="mailto:info@sadhanayoga.com" style="color:#0078d7; text-decoration:underline;">info@sadhanayoga.com</a><br>
+                            Gracias por usar nuestro servicio.
+                        </td>
+                    </tr>
+                </table>
+
+                <div style="text-align:center; color:#aaa; font-size:12px; margin-top:24px;">
+                    © Sadhana de Yoga <span th:text="${#temporals.year(#temporals.createNow())}">2025</span> Todos los derechos reservados<br>
+                    Powered by <a href="https://sadhanayoga.com" style="color:#0078d7; text-decoration:underline;">Sadhana de Yoga</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

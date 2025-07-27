@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificación de Nuevo Mensaje</title>
+</head>
+<body style="background-color:#f4f4f4; margin:0; padding:0; height:650px;">
+<div style="background-color:#235c22; padding:20px 0;">
+    <table align="center" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td align="center">
+                <table cellpadding="0" cellspacing="0" style="max-width:480px; width:100%;">
+                    <tr>
+                        <!-- LOGO -->
+                        <td style="padding-right:10px; vertical-align:middle; " width="50" align="right">
+                            <img src="cid:logoSadhana"
+                                 alt="Logo Sadhana de Yoga"
+                                 width="40" height="40"
+                                 style="background:#fff; border-radius:50%; display:block;">
+                        </td>
+                        <!-- TÍTULO -->
+                        <td style="vertical-align:middle; padding-left:0px;" width="50">
+                            <h1 style="color:#fff; font-size:24px; font-weight:700; font-family:'Segoe UI', Arial, sans-serif; margin:0;">
+                                Sadhana de Yoga
+                            </h1>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+        <td align="center">
+            <table width="600" cellpadding="0" cellspacing="0" style="border-radius: 10px; background-color:#ffffff; margin:40px auto; padding:32px 28px 24px 28px; box-shadow:0px 4px 12px rgba(0,0,0,0.15);">
+                <tr>
+                    <td style="font-family:'Segoe UI', Arial, sans-serif; font-size:18px; font-weight:600; color:#222222; padding-bottom:18px;">
+                        Has recibido un nuevo mensaje
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color:#eaf7ea; border-left:4px solid #238c3e; padding:18px 16px; color:#333333; font-size:14px;">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr valign="top">
+                                <td width="50" style="border: 1px solid black;">
+                                    <div style="min-width:40px; max-width:40px; min-height:40px; max-height:40px; background:#238c3e; border-radius:50%; text-align:center; line-height:40px; font-size:20px; font-weight:bold; color:#ffffff; font-family:Arial, sans-serif;"
+                                         th:text="${letra}">
+                                        L
+                                    </div>
+                                </td>
+                                <td style="padding-left:12px; border: 1px solid black;">
+                                    <div style="font-weight:bold; font-size:14px;">
+                                        <span th:text="${nombre}">Nombre</span>
+                                        <span style="background-color:#6c757d; color:#fff; padding:2px 8px; border-radius:4px; font-size:12px; margin-left:8px;"
+                                              th:text="${rol}">Rol</span>
+                                        <span style="color:#ffc107; font-size:16px; margin-left:12px;"
+                                              th:if="${importante}">&#9733;</span>
+                                        <span style="display:inline-block; width:8px; height:8px; background:#238c3e; border-radius:50%; margin-left:6px;"
+                                              th:unless="${leido}"></span>
+                                    </div>
+                                    <div style="font-weight:500; margin-top:4px;" th:text="${asunto}">Asunto del mensaje</div>
+                                    <div style="color:#6c757d; font-size:13px; margin-top:4px; margin-bottom:12px;" th:text="${contenido}">
+                                        Contenido del mensaje
+                                    </div>
+                                    <div>
+                                        <span style="background-color:#238c3e; color:#fff; padding:2px 8px; border-radius:4px; font-size:12px;"
+                                              th:if="${grupo}">Grupo</span>
+                                        <span style="background-color:#0078d7; color:#fff; padding:2px 8px; border-radius:4px; font-size:12px;"
+                                              th:unless="${grupo}">Personal</span>
+                                    </div>
+                                </td>
+                                <td align="right" style="color:#6c757d; font-size:12px; white-space:nowrap; border: 1px solid black;">
+                                    <div th:text="${fecha}">Fecha</div>
+                                    <div th:text="${hora}">Hora</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-size:13px; color:#666666; padding-top:18px;">
+                        Cualquier duda, no dudes en contactar con nosotros.<br>
+                        Contacta con nosotros en <a href="mailto:info@sadhanayoga.com" style="color:#0078d7; text-decoration:underline;">info@sadhanayoga.com</a><br>
+                        Gracias por usar nuestro servicio.
+                    </td>
+                </tr>
+            </table>
+
+            <div style="text-align:center; color:#aaa; font-size:12px; margin-top:24px;">
+                © Sadhana de Yoga <span th:text="${#temporals.year(#temporals.createNow())}">2025</span> Todos los derechos reservados<br>
+                Powered by <a href="https://sadhanayoga.com" style="color:#0078d7; text-decoration:underline;">Sadhana de Yoga</a>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

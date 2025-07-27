@@ -11,5 +11,6 @@ public interface GrupoService {
     void deleteGrupo(Long id);
     List<GrupoDTO> getAllGrupos();
     GrupoDTO getGrupoByNombregrupo(String nombregrupo);
+    GrupoDTO getGrupoById(Long id);
 
 }

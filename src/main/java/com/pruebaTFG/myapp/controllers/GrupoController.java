@@ -48,6 +48,12 @@ public class GrupoController {
         return ResponseEntity.ok(dto);
     }
 
+    @GetMapping("/buscar/{id}")
+    public ResponseEntity<GrupoDTO> obtenerGrupoId(@PathVariable Long id) {
+        GrupoDTO dto = service.getGrupoById(id);
+        return ResponseEntity.ok(dto);
+    }
+
 
     /* ================================================================================================================== */
 

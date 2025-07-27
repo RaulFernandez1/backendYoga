@@ -49,9 +49,18 @@ public class IGrupoService implements GrupoService {
         return grupos.stream().map(GrupoMapper::toDTO).toList();
     }
 
+
     @Override
     public GrupoDTO getGrupoByNombregrupo(String nombregrupo) {
         Optional<Grupo> grupoBD = repo.findByNombregrupo(nombregrupo);
+        if(grupoBD.isEmpty()) throw new GrupoNotFoundException();
+
+        return GrupoMapper.toDTO(grupoBD.get());
+    }
+
+    @Override
+    public GrupoDTO getGrupoById(Long id) {
+        Optional<Grupo> grupoBD = repo.findById(id);
         if(grupoBD.isEmpty()) throw new GrupoNotFoundException();
 
         return GrupoMapper.toDTO(grupoBD.get());
