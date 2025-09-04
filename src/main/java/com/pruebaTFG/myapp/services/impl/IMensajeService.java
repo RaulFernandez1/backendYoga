@@ -46,9 +46,7 @@ public class IMensajeService implements MensajeService {
 
     @Override
     public MensajeDTO addMensaje(MensajeDTO dto) {
-        System.out.println("CREO UN MENSAJE");
         if(dto.isIsgrupo()) {
-            System.out.println("ME METO POR AQUI");
             Optional<Grupo> grupoBD = this.repoGrupo.findById(dto.getGrupo());
             if(grupoBD.isEmpty()) throw new GrupoNotFoundException();
 
@@ -67,10 +65,7 @@ public class IMensajeService implements MensajeService {
             repoMensaje.saveAll(mensajes);
             return MensajeMapper.toDTO(mensajes.get(0));
         }
-        System.out.println("SOY UN MENSAJE SOLITARIO");
-        System.out.println(dto);
         Mensaje mensaje = MensajeMapper.toEntity(dto, repoAlumno);
-        System.out.println(mensaje);
 
         return MensajeMapper.toDTO(repoMensaje.save(mensaje));
     }

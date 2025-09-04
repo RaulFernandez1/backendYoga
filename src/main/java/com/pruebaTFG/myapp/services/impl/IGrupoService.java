@@ -20,6 +20,7 @@ public class IGrupoService implements GrupoService {
 
     @Override
     public GrupoDTO addGrupo(GrupoDTO dto) {
+        if(repo.findByNombregrupo(dto.getNombregrupo()).isPresent()) return null;
         Grupo grupo = GrupoMapper.toEntity(dto);
         return GrupoMapper.toDTO(repo.save(grupo));
     }

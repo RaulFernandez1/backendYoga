@@ -22,6 +22,7 @@ public class INivelService implements NivelService {
     // Aniadir nuevo nivel
     @Override
     public NivelDTO addNiveles(NivelDTO nivelDTO) {
+        if(repo.findByNombrenivelAndCondicion(nivelDTO.getNombrenivel(), nivelDTO.getCondicion()).isPresent()) return null;
         Nivel nivel = NivelMapper.toEntity(nivelDTO);
         return NivelMapper.toDTO(repo.save(nivel));
     }

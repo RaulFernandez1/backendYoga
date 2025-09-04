@@ -35,21 +35,18 @@ public class IReciboService implements ReciboService {
 
     @Override
     public ReciboDTO addRecibo(ReciboDTO dto) {
+        if(repoRecibo.findByNumerorecibo(dto.getNumerorecibo()).isPresent()) return null;
         Recibo recibo = ReciboMapper.toEntity(dto,repoAlumno);
         return ReciboMapper.toDTO(repoRecibo.save(recibo));
     }
 
     @Override
     public List<ReciboDTO> generarRecibos(LocalDate fecha) {
-        System.out.println("============================================================================================");
         List<Alumno> alumnos = buscarPorActivoYMensualidad();
-        System.out.println("\t Alumnos =>"+alumnos.toString());
         List<Recibo> recibos = new ArrayList<>();
         int anyo = fecha.getYear();
         int mes = fecha.getMonthValue();
         long contador =  Long.parseLong(repoRecibo.findUltimoNombreRecibo().split("-")[3]);
-
-        System.out.println("AÑO =>"+anyo+", MES =>"+mes+", contador =>"+contador);
 
         for (Alumno a : alumnos) {
             contador++;
@@ -64,7 +61,7 @@ public class IReciboService implements ReciboService {
             repoRecibo.save(recibo);
             recibos.add(recibo);
         }
-        System.out.println("============================================================================================");
+
         return recibos.stream().map(ReciboMapper::toDTO).toList();
     }
 

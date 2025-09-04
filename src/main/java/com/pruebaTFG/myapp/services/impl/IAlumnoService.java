@@ -25,6 +25,7 @@ public class IAlumnoService implements AlumnoService {
 
     @Override
     public AlumnoDTO addAlumno(AlumnoDTO alumno) {
+        if(repoAlumno.findByDni(alumno.getDni()).isPresent()) return null;
         Alumno alumnoDB = AlumnoMapper.toEntity(alumno,repoGrupo);
         return AlumnoMapper.toDTO(repoAlumno.save(alumnoDB));
     }

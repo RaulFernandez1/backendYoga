@@ -22,6 +22,7 @@ public class IGastoService implements GastosService {
 
     @Override
     public GastoDTO addGastos(GastoDTO dto) {
+        if(repo.findByFechagastoAndDescripcionAndCantidadgasto(dto.getFechagasto(), dto.getDescripcion(), dto.getCantidadgasto()).isPresent()) return null;
         Gasto gasto = GastoMapper.toEntity(dto);
         return GastoMapper.toDTO(repo.save(gasto));
     }
