@@ -27,7 +27,6 @@ public class ReciboController {
 
     @PostMapping("/generar")
     public ResponseEntity<List<ReciboDTO>> createRecibos(@RequestBody ReciboRequestDTO dto) {
-        System.out.println("Los datos son: "+dto);
         List<ReciboDTO> recibosDTO = service.generarRecibos(dto.getFechaemision());
         return ResponseEntity.ok(recibosDTO);
     }

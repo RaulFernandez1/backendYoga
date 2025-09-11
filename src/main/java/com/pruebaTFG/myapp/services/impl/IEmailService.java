@@ -58,9 +58,6 @@ public class IEmailService implements EmailService {
         contexto.setVariable("grupo",request.isGrupo());
 
         LocalDateTime fecha = request.getFechaHora();
-        System.out.println("HOAAAAAA ==> "+fecha.toString());
-        System.out.println("HOAAAAAA ==> "+fecha.format(DateTimeFormatter.ISO_LOCAL_DATE));
-        System.out.println("HOAAAAAA ==> "+fecha.format(DateTimeFormatter.ISO_LOCAL_TIME));
 
         String html = this.renderHTMLTemplate(contexto,"email-mensaje");
 

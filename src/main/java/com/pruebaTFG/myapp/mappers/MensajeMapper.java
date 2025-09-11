@@ -23,17 +23,6 @@ public class MensajeMapper {
 
     public static Mensaje toEntity(MensajeDTO mensajeDTO, AlumnoRepository repoAlumno) {
         Alumno alumno = mensajeDTO.getAlumno_id() != null ? repoAlumno.findById(mensajeDTO.getAlumno_id()).orElse(null) : null;
-        System.out.println(Mensaje.builder()
-                .id(mensajeDTO.getId())
-                .asunto(mensajeDTO.getAsunto())
-                .contenido(mensajeDTO.getContenido())
-                .fechaEnvio(mensajeDTO.getFechaEnvio())
-                .leido(mensajeDTO.isLeido())
-                .isGrupo(mensajeDTO.isIsgrupo())
-                .isImportante(mensajeDTO.isIsimportante())
-                .alumno(alumno)
-                .grupo(mensajeDTO.getGrupo())
-                .build());
         return Mensaje.builder()
                 .id(mensajeDTO.getId())
                 .asunto(mensajeDTO.getAsunto())

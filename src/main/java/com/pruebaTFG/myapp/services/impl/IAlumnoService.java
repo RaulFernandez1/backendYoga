@@ -44,8 +44,6 @@ public class IAlumnoService implements AlumnoService {
     @Override
     public List<AlumnoDTO> getAllAlumnos() {
         List<Alumno> alumnos = repoAlumno.findAll();
-        Iterator<Alumno> a = alumnos.iterator();
-        System.out.println(a.next());
         return alumnos.stream().map(AlumnoMapper::toDTO).toList();
     }
 
